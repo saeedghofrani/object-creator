@@ -1,34 +1,42 @@
-Object Creator
-Object Creator is a TypeScript-compatible utility that allows you to create nested JavaScript objects based on string paths. It supports dynamic object structures, including arrays and various data types, making it a versatile tool for managing complex data structures.
 
-Table of Contents
-Installation
-Usage
-Basic Example
-Handling Arrays
-Multiple Entries
-API Reference
-Contributing
-License
-Installation
-You can install object-creator via npm:
+# Object Creator
 
-bash
-Copy code
+**Object Creator** is a TypeScript-compatible utility that allows you to create nested JavaScript objects based on string paths. It supports dynamic object structures, including arrays and various data types, making it a versatile tool for managing complex data structures.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Basic Example](#basic-example)
+  - [Handling Arrays](#handling-arrays)
+  - [Multiple Entries](#multiple-entries)
+- [API Reference](#api-reference)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Installation
+
+You can install `object-creator` via npm:
+
+```bash
 npm install object-creator
+```
+
 Or using Yarn:
 
-bash
-Copy code
+```bash
 yarn add object-creator
-Usage
-Import the createObject function into your project and use it to build nested objects based on string paths.
+```
 
-Basic Example
+## Usage
+
+Import the `createObject` function into your project and use it to build nested objects based on string paths.
+
+### Basic Example
+
 Creating a simple nested object without arrays:
 
-typescript
-Copy code
+```typescript
 import { createObject } from 'object-creator';
 
 const obj = createObject({}, 'saeed.obj.x.y', 'value');
@@ -44,11 +52,13 @@ console.log(obj);
   }
 }
 */
-Handling Arrays
+```
+
+### Handling Arrays
+
 Creating nested structures that include arrays:
 
-typescript
-Copy code
+```typescript
 import { createObject } from 'object-creator';
 
 const obj = createObject({}, 'saeed:obj.x:array.y:string', 'arrayValue');
@@ -66,11 +76,13 @@ console.log(obj);
   }
 }
 */
-Multiple Entries
+```
+
+### Multiple Entries
+
 Adding multiple entries to an array:
 
-typescript
-Copy code
+```typescript
 import { createObject } from 'object-creator';
 
 const obj = {};
@@ -93,32 +105,39 @@ console.log(obj);
   }
 }
 */
-API Reference
-createObject(starterObject?: Record<string, any>, path: string, value?: ValueType): Record<string, any>
+```
+
+## API Reference
+
+`createObject(starterObject?: Record<string, any>, path: string, value?: ValueType): Record<string, any>`
+
 Creates a nested object based on the provided string path.
 
-Parameters:
+### Parameters:
 
-starterObject (optional): The initial object to build upon. If not provided, an empty object {} is used.
-path (string): The string path defining the structure. Use : to denote arrays and specify types. For example, 'saeed:obj.x:array.y:string'.
-value (optional): The value to assign at the specified path.
-Returns:
+- **starterObject (optional)**: The initial object to build upon. If not provided, an empty object `{}` is used.
+- **path (string)**: The string path defining the structure. Use `:` to denote arrays and specify types. For example, `'saeed:obj.x:array.y:string'`.
+- **value (optional)**: The value to assign at the specified path.
+
+### Returns:
 
 A new object with the nested structure based on the path and value provided.
-Type Definitions:
 
-typescript
-Copy code
+### Type Definitions:
+
+```typescript
 type ValueType = string | number | boolean | object | any[];
-Path Syntax:
+```
 
-Use : to indicate that a segment should be an array.
-Specify the data type after the colon (e.g., string, number, boolean, object).
-Separate nested keys with a dot ..
-Examples:
+### Path Syntax:
 
-typescript
-Copy code
+- Use `:` to indicate that a segment should be an array.
+- Specify the data type after the colon (e.g., `string`, `number`, `boolean`, `object`).
+- Separate nested keys with a dot `.`.
+
+### Examples:
+
+```typescript
 // Creating a simple nested object
 createObject({}, 'user.profile.name', 'Alice');
 // Result:
@@ -142,45 +161,54 @@ createObject({}, 'users:obj.list:array.username:string', 'Bob');
 //     ]
 //   }
 // }
-Contributing
+```
+
+## Contributing
+
 Contributions are welcome! Please follow these steps to contribute:
 
-Fork the Repository
+1. **Fork the Repository**
 
-Click the "Fork" button at the top right of the repository page to create a copy of the repository under your GitHub account.
+   Click the "Fork" button at the top right of the repository page to create a copy of the repository under your GitHub account.
 
-Clone the Forked Repository
+2. **Clone the Forked Repository**
 
-bash
-Copy code
-git clone https://github.com/yourusername/object-creator.git
-Navigate to the Project Directory
+   ```bash
+   git clone https://github.com/yourusername/object-creator.git
+   ```
 
-bash
-Copy code
-cd object-creator
-Create a New Branch
+3. **Navigate to the Project Directory**
 
-bash
-Copy code
-git checkout -b feature/your-feature-name
-Make Your Changes
+   ```bash
+   cd object-creator
+   ```
 
-Implement your feature or bug fix.
+4. **Create a New Branch**
 
-Commit Your Changes
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
 
-bash
-Copy code
-git commit -m "Add feature: your feature description"
-Push to the Branch
+5. **Make Your Changes**
 
-bash
-Copy code
-git push origin feature/your-feature-name
-Open a Pull Request
+   Implement your feature or bug fix.
 
-Go to the original repository and click on "Compare & pull request" to submit your changes for review.
+6. **Commit Your Changes**
 
-License
+   ```bash
+   git commit -m "Add feature: your feature description"
+   ```
+
+7. **Push to the Branch**
+
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+8. **Open a Pull Request**
+
+   Go to the original repository and click on "Compare & pull request" to submit your changes for review.
+
+## License
+
 This project is licensed under the MIT License.
