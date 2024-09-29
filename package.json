@@ -1,0 +1,32 @@
+{
+  "name": "object-creator",
+  "version": "1.0.0",
+  "description": "A utility to create nested objects based on string paths with TypeScript support.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "node dist/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saeedghofrani/object-creator.git"
+  },
+  "keywords": [
+    "object",
+    "creator",
+    "utility",
+    "typescript",
+    "npm"
+  ],
+  "author": "Saeed Ghofrani <sa.ghofraniivari@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/saeedghofrani/object-creator/issues"
+  },
+  "homepage": "https://github.com/saeedghofrani/object-creator#readme",
+  "devDependencies": {
+    "typescript": "^5.6.2"
+  }
+}
