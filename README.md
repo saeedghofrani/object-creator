@@ -40,18 +40,6 @@ Creating a simple nested object without arrays:
 import { createObject } from 'object-creator';
 
 const obj = createObject({}, 'saeed.obj.x.y', 'value');
-console.log(obj);
-/*
-{
-  "saeed": {
-    "obj": {
-      "x": {
-        "y": "value"
-      }
-    }
-  }
-}
-*/
 ```
 
 ### Handling Arrays
@@ -61,21 +49,7 @@ Creating nested structures that include arrays:
 ```typescript
 import { createObject } from 'object-creator';
 
-const obj = createObject({}, 'saeed:obj.x:array.y:string', 'arrayValue');
-console.log(obj);
-/*
-{
-  "saeed": {
-    "obj": {
-      "x": [
-        {
-          "y": "arrayValue"
-        }
-      ]
-    }
-  }
-}
-*/
+const obj = createObject({}, 'saeed:object.x:array.y:string', 'arrayValue');
 ```
 
 ### Multiple Entries
@@ -86,25 +60,8 @@ Adding multiple entries to an array:
 import { createObject } from 'object-creator';
 
 const obj = {};
-createObject(obj, 'saeed:obj.x:array.y:string', 'arrayValue1');
-createObject(obj, 'saeed:obj.x:array.y:string', 'arrayValue2');
-console.log(obj);
-/*
-{
-  "saeed": {
-    "obj": {
-      "x": [
-        {
-          "y": "arrayValue1"
-        },
-        {
-          "y": "arrayValue2"
-        }
-      ]
-    }
-  }
-}
-*/
+createObject(obj, 'saeed:object.x:array.y:string', 'arrayValue1');
+createObject(obj, 'saeed:object.x:array.y:string', 'arrayValue2');
 ```
 
 ## API Reference
@@ -116,7 +73,7 @@ Creates a nested object based on the provided string path.
 ### Parameters:
 
 - **starterObject (optional)**: The initial object to build upon. If not provided, an empty object `{}` is used.
-- **path (string)**: The string path defining the structure. Use `:` to denote arrays and specify types. For example, `'saeed:obj.x:array.y:string'`.
+- **path (string)**: The string path defining the structure. Use `:` to denote arrays and specify types. For example, `'saeed:object.x:array.y:string'`.
 - **value (optional)**: The value to assign at the specified path.
 
 ### Returns:
@@ -140,27 +97,9 @@ type ValueType = string | number | boolean | object | any[];
 ```typescript
 // Creating a simple nested object
 createObject({}, 'user.profile.name', 'Alice');
-// Result:
-// {
-//   "user": {
-//     "profile": {
-//       "name": "Alice"
-//     }
-//   }
-// }
 
 // Creating a nested object with an array
-createObject({}, 'users:obj.list:array.username:string', 'Bob');
-// Result:
-// {
-//   "users": {
-//     "list": [
-//       {
-//         "username": "Bob"
-//       }
-//     ]
-//   }
-// }
+createObject({}, 'users:object.list:array.username:string', 'Bob');
 ```
 
 ## Contributing

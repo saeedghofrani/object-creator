@@ -9,7 +9,10 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "release:patch": "npm run test && npm run lint && npm version patch -m \"fix: handle empty remainingPath and bump version to %s\" && git push origin main --follow-tags && npm publish",
+    "release:minor": "npm run test && npm run lint && npm version minor -m \"feat: add new features and bump version to %s\" && git push origin main --follow-tags && npm publish",
+    "release:major": "npm run test && npm run lint && npm version major -m \"feat!: introduce breaking changes and bump version to %s\" && git push origin main --follow-tags && npm publish"
   },
   "repository": {
     "type": "git",
